@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import {Navbar, Nav, NavDropdown, } from 'react-bootstrap'
+import {Navbar, Nav, NavDropdown, } from 'react-bootstrap';
+import {CartWidget} from '../CartWidget/CartWidget'
 
-export default class NavbarComp extends Component {
+export class NavbarComp extends Component {
     render () {
         return (
             <div>
@@ -19,6 +20,7 @@ export default class NavbarComp extends Component {
                         <NavDropdown.Divider />
                         <NavDropdown.Item href="#action/3.4">Libros Stephen King</NavDropdown.Item>
                         </NavDropdown>
+                        <CartWidget/>
                         </Nav>
                      </Navbar.Collapse>
                 </Navbar>
