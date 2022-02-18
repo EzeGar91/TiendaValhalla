@@ -1,5 +1,5 @@
 import carro from '../../assets/cart.png'
-
+import "./CartWidget.css"
 
 export const CartWidget = () =>{
     return (

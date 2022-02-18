@@ -2,7 +2,7 @@ import {useState} from "react"
 
 export const ItemCount = () => {
 
-  /* const [counter, setCounter] = useState(initial)
+   const [count, setCount] = useState(initial)
  
     const sumar = () => {
         if (count < stock) {
@@ -21,14 +21,14 @@ export const ItemCount = () => {
     const addToCart = () => {
         onAdd(count)
     }
- */
+ 
     return(
         <div>
             <div>
-                {/* <p style={{fontSize: '1rem', paddingTop:'8px'}}>Cantidad: {count} </p>
+                { <p style={{fontSize: '1rem', paddingTop:'8px'}}>Cantidad: {count} </p>
                 <button className="botonModif" onClick={restar}>-</button>
                 <button className="botonAgregar" onClick={onAdd}>Agregar</button>
-                <button className="botonModif" onClick={sumar}>+</button> */}
+                <button className="botonModif" onClick={sumar}>+</button> }
             </div>
         </div>
     )

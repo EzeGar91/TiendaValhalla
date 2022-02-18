@@ -8,7 +8,7 @@ import data from "../Data/Data"
 
 const productos = data;
 
-const itemListContainer = () => {
+const itemList = () => {
     const [products, setProducts] = useState([])
     const [loading, setLoading] = useState(false)
 
@@ -32,7 +32,7 @@ const getItems = () => {
 }
 
 return (
-    <Container className="mt-5 itemListContainer">
+    <Container className="mt-5 itemListCont">
         <ItemList products={products} loading={loading} />
     </Container>
 )
