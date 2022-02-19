@@ -9,7 +9,7 @@ function App() {
     <>
       <div className='App'> 
       <NavbarComp />
-      <ItemListContainer greetings ="Bienvenidos a mi Ecommerce"/>      
+      <ItemListContainer greetings ="Bienvenidos a Valhalla Records"/>      
       </div>
     </>
   );
