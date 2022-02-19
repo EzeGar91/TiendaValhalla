@@ -1,6 +1,6 @@
-import React from "react";
+import ItemCount from "../ItemCount/ItemCount";
 
-export const Item = ({title, price, pictureUrl}) => {
+export const ItemDetail = ({title, price, pictureUrl, description}) => {
     
     return (
         <div className="card" style={{width: "18rem", margin:"10px"}}>
@@ -8,8 +8,8 @@ export const Item = ({title, price, pictureUrl}) => {
             <div className="card-body">
                 <h5 className="card-title">{title}</h5>
                 <p className="card-text">{price}</p>
-                <button className="btn btn-primary">+ info</button>
+                <ItemCount stock={5} initial={1}/>
             </div>
-            </div>
-                )
+        </div>
+    )
 }

@@ -9,7 +9,7 @@ export const ItemListContainer = (props) =>{
         <div> 
         <h1>{greetings}</h1>
         <ItemList/>
-        <ItemCount stock={5} initial={1} /> 
+       
         </div>       
     )
 }

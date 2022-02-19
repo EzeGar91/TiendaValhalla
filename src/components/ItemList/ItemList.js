@@ -35,8 +35,11 @@ export const ItemList = (props) =>{
     }
 
     return(
-        <div>
+        <>
+        {loading && <p>Cargando...</p>}
+        <div className="row justify-content-center">
             {products.map(product => <Item title={product.title} sub={product.sub} pictureUrl={product.pictureUrl} price={product.price} onAddCard={(evento) => console.log(evento)}/>)}
         </div>
+        </>
     )
 }

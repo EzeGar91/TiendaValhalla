@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import {Navbar, Nav, NavDropdown, } from 'react-bootstrap';
-import {CartWidget} from '../Navbar/CartWidget/CartWidget'
+import {CartWidget} from '../../components/Navbar/CartWidget/CartWidget'
 
 export class NavbarComp extends Component {
     render () {
