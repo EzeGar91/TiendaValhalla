@@ -1,10 +1,11 @@
-import {ItemDetail} from "../ItemDetail/ItemDetail"
+import { ItemDetail } from '../ItemDetail/ItemDetail'
+import '../ItemListContainer/ItemListContainer.css'
 
-export const ItemDetailContainer = () =>{
-
-    return(  
-        <div>
-        <ItemDetail/> 
-        </div>       
-    )
+ export const ItemDetailContainer = () => {
+     
+    return(
+        <>    
+            <ItemDetail/>
+        </>
+     )
 }

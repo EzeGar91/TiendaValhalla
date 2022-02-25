@@ -1,30 +1,29 @@
-import React, { Component } from "react";
-import {Navbar, Nav, NavDropdown, } from 'react-bootstrap';
-import {CartWidget} from '../../components/Navbar/CartWidget/CartWidget'
+import React from 'react';
+import {Navbar, Nav } from 'react-bootstrap';
+import {CartWidget} from '../CartWidget'
+import { Link } from 'react-router-dom'
 
-export class NavbarComp extends Component {
-    render () {
-        return (
-            <div>
-                <Navbar bg="dark" variant={"dark" }expand="lg">
-                    <Navbar.Brand href="#home">Valhalla Records</Navbar.Brand>
-                    <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                    <Navbar.Collapse id="basic-navbar-nav">
-                    <Nav className="me-auto">
-                        <Nav.Link href="#home">Home</Nav.Link>
-                        <Nav.Link href="#link">Local</Nav.Link>
-                        <NavDropdown title="Musica" id="basic-nav-dropdown">
-                        <NavDropdown.Item href="#action/3.1">Vinilos</NavDropdown.Item>
-                        <NavDropdown.Item href="#action/3.2">Bandejas TocaDiscos</NavDropdown.Item>
-                        <NavDropdown.Item href="#action/3.3">Auriculares</NavDropdown.Item>
-                        <NavDropdown.Divider />
-                        <NavDropdown.Item href="#action/3.4">Libros Stephen King</NavDropdown.Item>
-                        </NavDropdown>
-                        <CartWidget/>
-                        </Nav>
-                     </Navbar.Collapse>
-                </Navbar>
-            </div>
-        )
-    }
+const NavbarComp = () =>{
+    return(
+        <div>
+            <Navbar bg="dark" variant="dark"
+            sticky='top' expand='lg'>
+                <CartWidget/>
+                <Navbar.Toggle />
+                <Navbar.Collapse>
+                <Nav style={{alignItems:'center'}}>
+
+                        <Link style={{textDecoration:'none', color:'white', fontSize:20, padding:5}} to="/">Home</Link>
+                        <Link style={{textDecoration:'none', color:'white', fontSize:20, padding:5}} to="/items">Productos</Link>
+                        <Link style={{textDecoration:'none', color:'white', fontSize:20, padding:5}} to="/contacto">Contacto</Link> 
+
+                        {/* <Link to="/cart">Carrito</Link> */}
+
+                    </Nav>
+                </Navbar.Collapse>
+            </Navbar>
+        </div>
+    )
 }
+
+export default NavbarComp;
