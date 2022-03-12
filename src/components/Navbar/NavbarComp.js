@@ -14,8 +14,13 @@ const NavbarComp = () =>{
                 <Nav style={{alignItems:'center'}}>
 
                         <Link style={{textDecoration:'none', color:'white', fontSize:20, padding:5}} to="/">Home</Link>
-                        <Link style={{textDecoration:'none', color:'white', fontSize:20, padding:5}} to="/items">Productos</Link>
-                        <Link style={{textDecoration:'none', color:'white', fontSize:20, padding:5}} to="/contacto">Contacto</Link> 
+
+                        <Link style={{textDecoration:'none', color:'white', fontSize:20, padding:5}} to="/category/MLA1051/Categoria1">Vinilos Nuevos</Link>
+
+                        <Link style={{textDecoration:'none', color:'white', fontSize:20, padding:5}} to="/category/MLA1576/Categoria2">Vinilos Usados</Link>
+
+                        <Link style={{textDecoration:'none', color:'white', fontSize:20, padding:5}} to="/category/MLA1577/Categoria3">Libros</Link> 
+ 
 
                         {/* <Link to="/cart">Carrito</Link> */}
 

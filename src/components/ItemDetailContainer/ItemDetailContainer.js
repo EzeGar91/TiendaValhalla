@@ -1,36 +1,33 @@
 import React, {useState, useEffect} from 'react'
+import '../ItemListContainer/ItemListContainer.css'  
+import { useParams } from 'react-router-dom' 
 import { ItemDetail } from '../ItemDetail/ItemDetail'
-import '../ItemListContainer/ItemListContainer.css'
-import { useParams } from 'react-router-dom'
-
-
 
  export const ItemDetailContainer = () => {
-     
+
     const [item, setItem] = useState([])
     const [loading, setLoading] = useState(true)
     const params = useParams()
 
-    useEffect(()=>{
+    useEffect(()=> {
         setTimeout(()=>{
             fetch(`https://api.mercadolibre.com/items/${params.id}`)
                 .then((response) => response.json())
-                        .then(respJSON => {setItem(respJSON); setLoading(false)})
-        }, 1000)
+                .then(respJSON => {setItem(respJSON); setLoading(false)})
+        }, 500)
     }, [params.id])
 
+      
     return(
         <>    
-           {
-               loading ?
-                    <p>Cargando...</p>
-                    :
+            {
+            loading ? 
+                    <h2 style={{textAlign:"center", margin:'1rem'}}>Loading...</h2>
+                    : 
                     <div>
-                        <ItemDetail item={item}/>
+                        <ItemDetail item={item} />
                     </div>
-           }
-                        
-          
+            }
         </>
      )
 }

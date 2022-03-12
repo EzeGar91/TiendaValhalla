@@ -1,10 +1,14 @@
-import carro from '../../assets/cart.png'
-import "../Navbar/CartWidget.css"
+import cart from '../../assets/cart.png';
+import "./CartWidget.css"
+import React from 'react'; 
 
 export const CartWidget = () =>{
-    return (
+
+     
+
+    return(
         <div>
-            <img src={carro} width="30px" alt="cart"></img>
+            <img src={cart} width="45px" alt="logo"></img>
             <span className='spancart'>0</span>
         </div>
     )

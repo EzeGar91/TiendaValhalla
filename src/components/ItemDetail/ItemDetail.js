@@ -1,21 +1,36 @@
-// import ItemCount from '../ItemCount/ItemCount'
-import '../ItemListContainer/ItemListContainer.css'
-import React from 'react'
+import React, { useState, useContext }  from 'react' 
+import ItemCount from '../ItemCount/ItemCount'
+import '../ItemListContainer/ItemListContainer.css'  
 
-// // import { useState } from 'react'
-// import { useEffect } from 'react'
+    export const ItemDetail = ({item}) =>{
+        const [add, setAdd] = useState(false)
 
- export const ItemDetail = ({item}) =>{
-
-    // const {itemName} = useParams();
-    // console.log('itemName', itemName);
-
+        const onAdd = () => {
+            setAdd(!add)
+        }
+ 
+  
      return(
         <>
-        <div className='container'>
-            <h3>{item.price}</h3>
-            <p>{item.title}</p>
-            </div>
+            <div className='container'>
+                <div className='row' >
+                    <div className='col-md-4' > 
+                        <img className="card-img-top" src={item.thumbnail} /> 
+                    </div>
+                    <div className='col-md-8'>
+                        <h2 className="card-title">{item.title}</h2>      
+                    
+                        <h3>Precio: ${item.price}</h3>
+                        <div>
+                        { add ? 
+                            <p>Producto añadido al carrito</p>
+                            :
+                            <ItemCount stock={5} initial={1} onAdd={onAdd} />   
+                        }
+                        </div>
+                    </div>  
+                </div>
+            </div>  
         </>
      )
 }
