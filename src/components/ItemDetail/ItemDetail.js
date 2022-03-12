@@ -1,13 +1,14 @@
-import React, { useState, useContext }  from 'react' 
+import React, { useContext, useState }  from 'react' 
 import ItemCount from '../ItemCount/ItemCount'
 import '../ItemListContainer/ItemListContainer.css'  
+import { Link } from 'react-router-dom'
+import { CartContext } from '../../context/useContext'
 
     export const ItemDetail = ({item}) =>{
         const [add, setAdd] = useState(false)
 
-        const onAdd = () => {
-            setAdd(!add)
-        }
+        const { addItem } = useContext(CartContext)
+
  
   
      return(
@@ -15,7 +16,7 @@ import '../ItemListContainer/ItemListContainer.css'
             <div className='container'>
                 <div className='row' >
                     <div className='col-md-4' > 
-                        <img className="card-img-top" src={item.thumbnail} /> 
+                        <img className="card-img-top" src={item.thumbnail} alt="thumbnail"/> 
                     </div>
                     <div className='col-md-8'>
                         <h2 className="card-title">{item.title}</h2>      
@@ -25,8 +26,9 @@ import '../ItemListContainer/ItemListContainer.css'
                         { add ? 
                             <p>Producto añadido al carrito</p>
                             :
-                            <ItemCount stock={5} initial={1} onAdd={onAdd} />   
+                            <ItemCount item={item} stock={5} initial={1} addItem={addItem} />   
                         }
+                        <Link to="/cart" type="button">Finalizar Compra</Link>
                         </div>
                     </div>  
                 </div>

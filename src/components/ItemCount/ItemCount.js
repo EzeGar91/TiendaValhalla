@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 
-const ItemCount = ({stock, initial, onAdd}) =>{
+const ItemCount = ({item, stock, initial, addItem}) =>{
  
       const [count, setCount] = useState(initial);
 
@@ -26,7 +26,7 @@ const ItemCount = ({stock, initial, onAdd}) =>{
                 <button type="button" className="btn btn-outline-success" onClick={sumar}>+</button>
             </div>
             
-                <button type="button" className="btn btn-outline-primary" onClick={onAdd}>
+                <button type="button" className="btn btn-outline-primary" onClick={() => addItem(item, count)}>
                     Añadir al Carrito
                 </button>
           
