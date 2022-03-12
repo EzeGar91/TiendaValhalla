@@ -1,4 +1,4 @@
-import carro from '../../../assets/cart.png'
+import carro from '../../assets/cart.png'
 import "../Navbar/CartWidget.css"
 
 export const CartWidget = () =>{

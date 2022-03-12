@@ -1,50 +1,48 @@
 import '../ItemListContainer/ItemListContainer.css'
-import { useEffect } from "react"
-import { useState } from "react"
-import { Link } from "react-router-dom"
-import {Item} from '../Item/Item'
-import data from '../Data/Data'
+import { useState , useEffect } from "react"
+import React from 'react'
+import { Item } from '../Item/Item'
 
-const productos = data;
 
- export const ItemListContainer = (props) =>{ 
+ export const ItemListContainer = () =>{ 
 
-    const [products, setProducts] = useState([])
-    const [loading, setLoading] = useState()
+    const [items, setItems] = useState([])
 
-    useEffect(() => {
-        setLoading(true)
-        const promise = getItems()
-        promise.then(json => { 
-            setLoading(false)
-            setProducts(json) 
-        })
-    }, [])
+    useEffect (()=>{
+        fetchItems();
+        }, [])
 
-    const getItems = () => {
+    async function fetchItems(){
+        const response = await fetch ('https://api.mercadolibre.com/sites/MLA/search?q=vinilos-musica'
+        );
 
-        const promise = new Promise((resolve, reject) => {
-            setTimeout(() => {
-                resolve(productos)
-            }, 1000)
-        })
-        return promise
+        if (response.ok){
+            const result = await response.json()
+            setItems(result.results)
+        }
     }
-
-    return(
-        <>  
-        <div style={{textAlign: 'center'}}>
-            <h1 style={{margin: 15}}>Bienvenido a Valhalla Records</h1>
-        {loading && <h5 style={{margin:"1rem", padding:"10px"}}>Cargando lista de productos</h5>}
-            <div className="row justify-content-center">
-            {
-                products.map(product => 
-                        <Item id={product.id} title={product.title} pictureUrl={product.pictureUrl} 
-                        price={product.price} onAddCard={(e) => console.log(e)}/>
-                )
-            }
+    
+    const texto = "Tienda Valhalla Music Vinilos"
+    
+    return (
+        <>
+            <div>
+                <h1>
+                    {texto}
+                </h1>
+                <div>
+                    {
+                        items.map(item=>(
+                            <Item key={item.id}
+                                title={item.title}
+                                price={item.price}
+                                thumbnail={item.thumbnail}
+                            />
+                        ))
+                    }
+                </div>
             </div>
-            </div>  
+            
         </>
     )
-}
+ }
