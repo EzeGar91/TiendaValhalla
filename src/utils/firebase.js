@@ -2,14 +2,14 @@ import { initializeApp } from "firebase/app";
 import {getFirestore } from 'firebase/firestore'
 
 const firebaseConfig = {
-    apiKey: "AIzaSyCaoUQpS3tW0WdDy4d6HoHvp1LzSPusICo",
-    authDomain: "replace-ecommerce-4fbf3.firebaseapp.com",
-    projectId: "replace-ecommerce-4fbf3",
-    storageBucket: "replace-ecommerce-4fbf3.appspot.com",
-    messagingSenderId: "665777010530",
-    appId: "1:665777010530:web:1a75ca2977937f16185e3b"
-  };
+  apiKey: "AIzaSyDcUvnXGhxyhLhsGdv1GhXkvj8pCngre84",
+  authDomain: "valhalla-b4aec.firebaseapp.com",
+  projectId: "valhalla-b4aec",
+  storageBucket: "valhalla-b4aec.appspot.com",
+  messagingSenderId: "976113379100",
+  appId: "1:976113379100:web:24740469c581fe24c6bcd9"
+};
 
-  const app = initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig);
 
- export const db = getFirestore(app);
+export const db = getFirestore(app);

@@ -10,8 +10,7 @@ export const CartProvider = ({ children }) => {
   }
 
   const addItem = (item, count) => {
-    setItems([...items, { ...item, count: count}])
-    console.log(items);
+    setItems([...items, {id: item.id, name: item.title, price: item.price , count: count}]);
   }
 
   return (

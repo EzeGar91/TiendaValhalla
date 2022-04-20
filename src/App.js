@@ -1,15 +1,16 @@
 import "./App.css"
 import 'bootstrap/dist/css/bootstrap.min.css';
-import NavbarComp from './components/Navbar/NavbarComp'  
+import NavbarComp from './components/NavBar/NavBar';  
 import { ItemDetailContainer } from "./components/ItemDetailContainer/ItemDetailContainer"; 
-import { CartProvider } from "./context/useContext";
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Cart } from "./views/Cart";
+import { CartProvider } from "../src/context/Context";
 import { Home } from "./views/Home";
-import { Cart } from "./components/Cart/Cart";
 import { Category } from "./views/Category";
+import Footer from './components/Footer/Footer'
  
 function App() {
-
+   
   return (
     <>
     <CartProvider>
@@ -18,16 +19,16 @@ function App() {
       <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path="/item/:id" element={<ItemDetailContainer/>} /> 
-        <Route path="/category/:categoryId/:categoryName" element={<Category/>} /> 
-        <Route path="/cart" element={<Cart/>} /> 
+        <Route path="/category/:categoryId" element={<Category/>} /> 
+        <Route path="/cart" element={<Cart />}/>
+        <Route path="/contexto" element={<CartProvider/>} />
       </Routes>
+    <Footer/>
     </BrowserRouter>
     </CartProvider>
-    
     </>
   );
 }
 
 export default App;
-
 
