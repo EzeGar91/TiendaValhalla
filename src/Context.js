@@ -23,7 +23,7 @@ export const CartProvider = ({children}) => {
       }))
       :
       setItems([...items, {...item, count: count}])
-  
+      //  setItems([...items, {id: item.id, name: item.title, price: item.price, count: count}])
       console.log(items);
   }
 

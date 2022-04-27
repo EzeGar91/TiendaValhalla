@@ -5,7 +5,7 @@ import { CartWidget } from '../../components/NavBar/CartWidget'
 import { Link } from 'react-router-dom'
 import './NavBar.css'
 
-const NavbarComp = () => {
+export const NavbarComp = () => {
 
     return (
         <>
@@ -13,7 +13,7 @@ const NavbarComp = () => {
                 <Navbar bg="dark" variant="dark"
                     sticky='top' expand='lg'>
                     <Navbar.Brand>
-                        <img src={ValhallaLogo} style={{ height: '90px', width: '150px' }} className="ValhallaImg" />
+                        <img src={ValhallaLogo} style={{ height: '90px', width: '150px' }} alt="img" className="ValhallaImg" />
                     </Navbar.Brand>
                     <CartWidget />
                     <Navbar.Toggle />
@@ -30,5 +30,3 @@ const NavbarComp = () => {
         </>
     )
 }
-
-export default NavbarComp;

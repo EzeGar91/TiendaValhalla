@@ -2,7 +2,7 @@ import cart from '../../assets/cart.png';
 import "./CartWidget.css"
 import React from 'react';
 import { useContext } from 'react';
-import { CartContext } from '../../context/Context';
+import { CartContext } from '../../Context';
 
 export const CartWidget = () =>{
 

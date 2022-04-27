@@ -1,15 +1,15 @@
 import "./App.css"
 import 'bootstrap/dist/css/bootstrap.min.css';
-import NavbarComp from './components/NavBar/NavBar';  
+import {NavbarComp} from './components/NavBar/NavBar';  
 import { ItemDetailContainer } from "./components/ItemDetailContainer/ItemDetailContainer"; 
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Cart } from "./views/Cart";
-import { CartProvider } from "../src/context/Context";
+import { CartProvider } from "./Context";
 import { Home } from "./views/Home";
 import { Category } from "./views/Category";
 import Footer from './components/Footer/Footer'
  
-function App() {
+export function App() {
    
   return (
     <>
@@ -29,6 +29,4 @@ function App() {
     </>
   );
 }
-
-export default App;
 

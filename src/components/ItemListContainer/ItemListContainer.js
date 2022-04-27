@@ -2,43 +2,53 @@ import '../ItemListContainer/ItemListContainer.css'
 import React from 'react'
 import { useState, useEffect } from 'react'
 import { ItemList } from '../ItemList/ItemList' 
+import { collection, doc, query, where, getDoc, getDocs } from 'firebase/firestore';
+import { db } from '../../utils/firebase';
+import { useParams } from 'react-router-dom';
  
-export const ItemListContainer = ({categoryId, categoryName }) =>{
+export const ItemListContainer = () =>{
+ 
+    const [productos, setProductos] = useState([])
+    const {categoryId} = useParams() 
+ 
+    const getData = async()=>{
+        try{
+            const productosCollection = collection(db, 'items');
+            const response = await getDocs(productosCollection);
+            const result = response.docs.map(doc=>{return {id: doc.id, ...doc.data()}})
+            setProductos(result)
+            console.log('result', result);
+            } catch (error) {
+                console.warn("error", error);
+            } 
+    }
 
-    const [items, setItems] = useState([]) 
-    const [loading, setLoading] = useState(false)
+    const getDataCategory_query = async()=>{
+        try{
+            const q = query(collection(db, 'items'), where('category', '===', 'categoryId'));
+            const querySnapShot = await getDocs(q)
+            setProductos(querySnapShot.docs.map(doc=> doc = {id: doc.id, ...doc.data()})) 
+            } catch (error) {
+                console.warn("error", error);
+            } 
+    }
 
-     useEffect(()=> {
-        setLoading(true)
-        setTimeout(()=>{
-            fetch (`https://api.mercadolibre.com/sites/MLA/search?category=${categoryId}&limit=4`)
-                .then(response=> response.json())
-                .then(respJSON => {console.log(respJSON.results); setItems(respJSON.results); setLoading(false)})
-                .catch(error => console.log("Error", error))
-        }, 800)
+    useEffect(()=>{
+        categoryId ?
+            getDataCategory_query() :
+            getData()
     }, [categoryId])
-    
+
+    console.log('productos: ', productos);
+
     return(
         <>  
-        <div style={{textAlign: 'center'}}>
-           <h3 style={{margin: '1rem', padding: '2px'}}>{categoryName}</h3>
-             
-                {
-                loading ? (
-                    <p>Cargando...</p>
-                ) : (
-                    <div className='row justify-content-center'>
-                     {items.map(item=>(
-                        <ItemList 
-                            key={item.id}
-                            title={item.title}
-                            price={item.price}
-                            thumbnail={item.thumbnail}
-                            id={item.id}
-                        />
-                    ))}
-                    </div>
-                )}             
+        <div style={{textAlign: 'center'}}>             
+           <div className="container">
+                <div className="row">
+                        <ItemList items={productos}/>
+                </div>
+            </div>
         </div>
         </>
     )

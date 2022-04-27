@@ -1,11 +1,11 @@
-import { async } from '@firebase/util';
-import { collection, doc, addDoc, Timestamp, updateDoc } from 'firebase/firestore';
+
+import { collection, addDoc, Timestamp } from 'firebase/firestore';
 import React, { useContext } from 'react'
 import { Link } from 'react-router-dom';
-import { CartContext } from '../context/Context';
+import { CartContext } from '../Context';
 import { db } from '../utils/firebase';
 import './Cart.css'
-
+ 
 export const Cart = () => {
   const { items, removeItem, clearItems } = useContext(CartContext);
 
@@ -53,7 +53,7 @@ export const Cart = () => {
                             <div className="product" style={{ textAlign: 'center' }}>
                               <div className="row">
                                 <div className="col-md-3">
-                                  <img className="img-fluid mx-auto d-block image" width={'200px'} src={item.imageUrl} />
+                                  <img className="img-fluid mx-auto d-block image" width={'200px'} alt="img" src={item.imageUrl} />
                                 </div>
                                 <div className="col-md-8" >
                                   <div className="info" >
