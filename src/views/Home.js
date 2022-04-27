@@ -3,7 +3,7 @@ import { ItemListContainer } from '../components/ItemListContainer/ItemListConta
 
 export const Home = () => {
 
-    const text = 'Bienvenido a Valhalla'
+    const text = 'Bienvenidos a Valhalla. Tu tienda musical de confianza!'
 
   return (
     <>
